@@ -2,16 +2,16 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "1.0.0"
+  version "1.1.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/bbkane/grabbit/releases/download/v1.0.0/grabbit_1.0.0_Darwin_x86_64.tar.gz"
-    sha256 "11dfcc76c8a18b30beb1990abc7292c2ab8d9c93d24449e6dab5e7ff1abff628"
+    url "https://github.com/bbkane/grabbit/releases/download/v1.1.0/grabbit_1.1.0_Darwin_x86_64.tar.gz"
+    sha256 "52a32d5c1a8416cc6d7fcdb11fa08a1e63217e9898d8f00e3cd0f7bbeb6ec6ef"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v1.0.0/grabbit_1.0.0_Linux_x86_64.tar.gz"
-      sha256 "ab4cff2f2e2ae7ce4a97a964e81538f569a1eb6ba4481e85db2af2de7b3c6411"
+      url "https://github.com/bbkane/grabbit/releases/download/v1.1.0/grabbit_1.1.0_Linux_x86_64.tar.gz"
+      sha256 "c3e508ac348c6e0f3aa9c41c45f8f03469333027786622dabd84aebf8ad76b5b"
     end
   end
 
@@ -24,6 +24,52 @@ class Grabbit < Formula
     their apps without a big scary "... the developer cannot be verified"
     warning. I'm not willing to pay that to give away free apps.
     See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
+  EOS
+  end
+
+  plist_options :startup => false
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <!-- Not sure these are necessary -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin</string>
+  </dict>
+
+  <key>Label</key>
+  <string>#{plist_name}</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>#{opt_bin}/grabbit</string>
+    <string>grab</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Hour</key>
+      <integer>10</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+      <!-- Monday is 1 -->
+      <key>Weekday</key>
+      <integer>1</integer>
+    </dict>
+  </array>
+</dict>
+
+</plist>
+
   EOS
   end
 end
