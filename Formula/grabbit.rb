@@ -2,16 +2,16 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "2.1.0"
+  version "2.1.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/bbkane/grabbit/releases/download/v2.1.0/grabbit_2.1.0_Darwin_x86_64.tar.gz"
-    sha256 "45971c399a28a2f533fe6db03d1dc5745258321cc3ada802e5011f86bd3bfbef"
+    url "https://github.com/bbkane/grabbit/releases/download/v2.1.1/grabbit_2.1.1_Darwin_x86_64.tar.gz"
+    sha256 "050563cb2dd368ea804c94cd489949c9e37cc1d61b37b990be6bff9afd61dfb8"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v2.1.0/grabbit_2.1.0_Linux_x86_64.tar.gz"
-      sha256 "c57ef8e0d71f7927001bf375657d07a9bdbb4de02abd27a2d7aa63e3bb18a942"
+      url "https://github.com/bbkane/grabbit/releases/download/v2.1.1/grabbit_2.1.1_Linux_x86_64.tar.gz"
+      sha256 "9fa44d1ab3628c7a01005299346d090ba0896e6e34fd373783772cd2b1b13a1b"
     end
   end
 
