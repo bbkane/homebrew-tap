@@ -5,16 +5,16 @@
 class Kvcrutch < Formula
   desc "Easily and Safely work with Azure Key Vault"
   homepage "https://github.com/bbkane/kvcrutch"
-  version "1.1.2"
+  version "1.1.3"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.2/kvcrutch_1.1.2_Darwin_x86_64.tar.gz"
-    sha256 "da2d46ccb686362f9591b24d810b203aeaf0f8a8114da663b107f164b78f0c2d"
+    url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.3/kvcrutch_1.1.3_Darwin_x86_64.tar.gz"
+    sha256 "8534401e1ebc8e644e3770cf6c35b34c7930793b2f3580392318f46c5dc87ca6"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.2/kvcrutch_1.1.2_Linux_x86_64.tar.gz"
-    sha256 "96690205c6704c60a9ec9eff789f892ce41b4706da150fed04bf1fbcccae9c38"
+    url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.3/kvcrutch_1.1.3_Linux_x86_64.tar.gz"
+    sha256 "2248cb45fefbdae4785080d8df00596525c68f1417c4f8c3ad1229ae9dce98f9"
   end
 
   def install
