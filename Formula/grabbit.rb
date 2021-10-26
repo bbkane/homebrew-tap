@@ -5,25 +5,28 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.0.7"
-  bottle :unneeded
+  version "4.1.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.0.7/grabbit_4.0.7_Darwin_x86_64.tar.gz"
-      sha256 "be8e029f88e5006fa07e1ad486e5948006f6dc4f42782f87d8cb1bb872eea6d4"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.1.0/grabbit_4.1.0_Darwin_x86_64.tar.gz"
+      sha256 "6db147535abc1cd1d35217836b20237c2c340e6790cc7f070421cdbd2088c640"
+
+      def install
+        bin.install "grabbit"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.0.7/grabbit_4.0.7_Linux_x86_64.tar.gz"
-      sha256 "9ab264a663ffb38a45521fc057ff49134a416b3eaa112571bc0ee6f75e849800"
-    end
-  end
+      url "https://github.com/bbkane/grabbit/releases/download/v4.1.0/grabbit_4.1.0_Linux_x86_64.tar.gz"
+      sha256 "911e86f931370a83641d5523c2ff792fcca0b796a3e05c63d2114c09a433439d"
 
-  def install
-    bin.install "grabbit"
+      def install
+        bin.install "grabbit"
+      end
+    end
   end
 
   def caveats; <<~EOS
