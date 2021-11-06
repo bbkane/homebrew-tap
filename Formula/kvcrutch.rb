@@ -5,25 +5,28 @@
 class Kvcrutch < Formula
   desc "Easily and Safely work with Azure Key Vault"
   homepage "https://github.com/bbkane/kvcrutch"
-  version "1.1.11"
-  bottle :unneeded
+  version "1.1.12"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.11/kvcrutch_1.1.11_Darwin_x86_64.tar.gz"
-      sha256 "f4b992899f7fa4f0d03820424563442d20941d9d582e315b910c56b41458c2a6"
+      url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.12/kvcrutch_1.1.12_Darwin_x86_64.tar.gz"
+      sha256 "386dac9d74df510a6aa57d8bfcf491259e7335eb15ed26547dea2d310857611a"
+
+      def install
+        bin.install "kvcrutch"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.11/kvcrutch_1.1.11_Linux_x86_64.tar.gz"
-      sha256 "228f9b49d61c507932af677528bb723f9541f46183ab4ae9ec7a307c16accb0c"
-    end
-  end
+      url "https://github.com/bbkane/kvcrutch/releases/download/v1.1.12/kvcrutch_1.1.12_Linux_x86_64.tar.gz"
+      sha256 "6e0dfb2350ea60e247618ee63bf1f16da743875c3f210f2e71f1ee503d8561b5"
 
-  def install
-    bin.install "kvcrutch"
+      def install
+        bin.install "kvcrutch"
+      end
+    end
   end
 
   def caveats; <<~EOS
