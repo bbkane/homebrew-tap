@@ -5,12 +5,12 @@
 class Starghaze < Formula
   desc "Save GitHub Starred Repo Information"
   homepage "https://github.com/bbkane/starghaze"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/starghaze/releases/download/v0.0.2/starghaze_0.0.2_darwin_amd64.tar.gz"
-      sha256 "4a4b9166474bd371160e95f56b2051a3b6a76956c2372a115ce9afe33bbe3b80"
+      url "https://github.com/bbkane/starghaze/releases/download/v0.0.3/starghaze_0.0.3_darwin_amd64.tar.gz"
+      sha256 "bb8b144507d8a8d3f445072bfbd95349694cf2287b1e4312350bd7f01fabc897"
 
       def install
         bin.install "starghaze"
@@ -20,8 +20,8 @@ class Starghaze < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/starghaze/releases/download/v0.0.2/starghaze_0.0.2_linux_amd64.tar.gz"
-      sha256 "efc50d64db84cd3c5c1f9464c31e9da8d0f802cbf15a2c69cf0c1122de8aca33"
+      url "https://github.com/bbkane/starghaze/releases/download/v0.0.3/starghaze_0.0.3_linux_amd64.tar.gz"
+      sha256 "8b625ac939dbcae6320cdcdb1ee2cfb161f7575bb75f863c57c4cb7f316f2a50"
 
       def install
         bin.install "starghaze"
