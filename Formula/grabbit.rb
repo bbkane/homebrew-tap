@@ -5,12 +5,12 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.2.4"
+  version "4.2.5"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.4/grabbit_4.2.4_darwin_amd64.tar.gz"
-      sha256 "05604082691000c462c929236f27422e19477de2a7626a0e92e858bade4e97a1"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.2.5/grabbit_4.2.5_darwin_amd64.tar.gz"
+      sha256 "11e1fb44dc804657eacaf25386d7e399607333e9c5dbfa058121dd1851a87791"
 
       def install
         bin.install "grabbit"
@@ -20,8 +20,8 @@ class Grabbit < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.4/grabbit_4.2.4_linux_amd64.tar.gz"
-      sha256 "9dde879f0c01a07784bbc7a03dabf860a0d96111bc94a201988b6b074c5b4b84"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.2.5/grabbit_4.2.5_linux_amd64.tar.gz"
+      sha256 "f18c7291e3f7c88670741d3fc560b97d5789908df1d1bb01ce2a0e0bce348b87"
 
       def install
         bin.install "grabbit"
