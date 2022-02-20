@@ -5,12 +5,12 @@
 class Fling < Formula
   desc "GNU Stow alternative for dotfiles"
   homepage "https://github.com/bbkane/fling"
-  version "0.0.10"
+  version "0.0.11"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.10/fling_0.0.10_darwin_amd64.tar.gz"
-      sha256 "18fa2607e6828093b26222ebae5641acf6d4e8c94fe76df9a97d81505fe47daa"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.11/fling_0.0.11_darwin_amd64.tar.gz"
+      sha256 "cbe88a449923e089be2e6a895c3214732c712eea7438a9b817d3ddf3acbd4c75"
 
       def install
         bin.install "fling"
@@ -20,8 +20,8 @@ class Fling < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.10/fling_0.0.10_linux_amd64.tar.gz"
-      sha256 "0366838e88464e4c3a8b555e3a0fd102ce6d45d1bca4bb90a1c40325a718c8b3"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.11/fling_0.0.11_linux_amd64.tar.gz"
+      sha256 "400aa63f4f902758438999dec3ddd4eab141914399cfc1ecdce7a6980e7dd040"
 
       def install
         bin.install "fling"
