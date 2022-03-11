@@ -5,23 +5,31 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.2.7"
+  version "4.2.8"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.7/grabbit_4.2.7_darwin_amd64.tar.gz"
-      sha256 "0f76b93564cc0cd774d0cc6c7eab58c599cbe52e385c5a948d3c4ca9f5678ced"
+    url "https://github.com/bbkane/grabbit/releases/download/v4.2.8/grabbit_4.2.8_darwin_amd64.tar.gz"
+    sha256 "1a5d262edd4c71a82bac1b948094e08bf05fe5a6ecc0c66b987fd3328c040b2b"
 
-      def install
-        bin.install "grabbit"
+    def install
+      bin.install "grabbit"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Grabbit
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.7/grabbit_4.2.7_linux_amd64.tar.gz"
-      sha256 "2d8c6d91c4f98d4eae92585575fb2d99c6ef5c5384e75c9aa965b0d20c460d54"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.2.8/grabbit_4.2.8_linux_amd64.tar.gz"
+      sha256 "273aa0ff180b9bc56cd3faac9914ff7c1ed3fe6897deaa5e102fca3fd048cd00"
 
       def install
         bin.install "grabbit"
