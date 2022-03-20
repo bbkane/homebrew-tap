@@ -5,23 +5,31 @@
 class Fling < Formula
   desc "GNU Stow alternative for dotfiles"
   homepage "https://github.com/bbkane/fling"
-  version "0.0.11"
+  version "0.0.12"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.11/fling_0.0.11_darwin_amd64.tar.gz"
-      sha256 "cbe88a449923e089be2e6a895c3214732c712eea7438a9b817d3ddf3acbd4c75"
+    url "https://github.com/bbkane/fling/releases/download/v0.0.12/fling_0.0.12_darwin_amd64.tar.gz"
+    sha256 "573809d4de4de0b58683c814b3f171db601ddd6f02f91c4971d616d29a3bff36"
 
-      def install
-        bin.install "fling"
+    def install
+      bin.install "fling"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Fling
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.11/fling_0.0.11_linux_amd64.tar.gz"
-      sha256 "400aa63f4f902758438999dec3ddd4eab141914399cfc1ecdce7a6980e7dd040"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.12/fling_0.0.12_linux_amd64.tar.gz"
+      sha256 "4d5506f3c25b6335e94110967161b103396d4876134b183f58949c0e8ae2ad77"
 
       def install
         bin.install "fling"
