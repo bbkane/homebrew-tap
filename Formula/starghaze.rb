@@ -5,23 +5,31 @@
 class Starghaze < Formula
   desc "Save GitHub Starred Repo Information"
   homepage "https://github.com/bbkane/starghaze"
-  version "0.0.8"
+  version "0.0.11"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bbkane/starghaze/releases/download/v0.0.8/starghaze_0.0.8_darwin_amd64.tar.gz"
-      sha256 "7f2c949a273c8764b08798e69f439b45b9912e5ff1e305e959038fd880582370"
+    url "https://github.com/bbkane/starghaze/releases/download/v0.0.11/starghaze_0.0.11_darwin_amd64.tar.gz"
+    sha256 "e5807e46a5e1fdda6fe1b57a548f081a988d9aa94aceeb6acbca4b8acfb343e3"
 
-      def install
-        bin.install "starghaze"
+    def install
+      bin.install "starghaze"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Starghaze
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/starghaze/releases/download/v0.0.8/starghaze_0.0.8_linux_amd64.tar.gz"
-      sha256 "4f90008504cb17c7d74a51a167e89f8c68452d5379a5a7e1d3793b3bdd300d23"
+      url "https://github.com/bbkane/starghaze/releases/download/v0.0.11/starghaze_0.0.11_linux_amd64.tar.gz"
+      sha256 "74d319f4955149fc04411e36f14da83550de9bd29eed2cf4d25efe0bec743f05"
 
       def install
         bin.install "starghaze"
