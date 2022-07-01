@@ -5,11 +5,11 @@
 class Tablegraph < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "0.0.1"
+  version "0.0.2"
 
   on_macos do
-    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.1/tablegraph_0.0.1_darwin_amd64.tar.gz"
-    sha256 "5a13ed38ac9582c150568eee29db83e15bb1c306fdd96d867f3b80c0fd677d0f"
+    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.2/tablegraph_0.0.2_darwin_amd64.tar.gz"
+    sha256 "a48ebea226af1719c751e5bf3824bf6dbd5e4cc7c3797e3bb0d2465ba452ace5"
 
     def install
       bin.install "tablegraph"
@@ -28,8 +28,8 @@ class Tablegraph < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.1/tablegraph_0.0.1_linux_amd64.tar.gz"
-      sha256 "f18a03c07f24e479006674ccfc0a765549e9d46ca8f54600ae08206d45fe9064"
+      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.2/tablegraph_0.0.2_linux_amd64.tar.gz"
+      sha256 "dbf5d67157b36d0e4cfe44943f57669ac4a1326f596af3f1d4fb7a700c47544a"
 
       def install
         bin.install "tablegraph"
