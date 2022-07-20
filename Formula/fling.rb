@@ -5,31 +5,47 @@
 class Fling < Formula
   desc "GNU Stow alternative for dotfiles"
   homepage "https://github.com/bbkane/fling"
-  version "0.0.15"
+  version "0.0.16"
 
   on_macos do
-    url "https://github.com/bbkane/fling/releases/download/v0.0.15/fling_0.0.15_darwin_amd64.tar.gz"
-    sha256 "7e10bb8b53a71cd225e38af0080ba22e3e58e36f8de9bdfe5ea5b00cdfff210a"
+    if Hardware::CPU.intel?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.16/fling_0.0.16_darwin_amd64.tar.gz"
+      sha256 "b684ca2a42615a30cfabe23f1bf97acfe5d16a7c44be5a62c11f85345c9debac"
 
-    def install
-      bin.install "fling"
+      def install
+        bin.install "fling"
+      end
     end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Fling
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/bbkane/fling/releases/download/v0.0.16/fling_0.0.16_darwin_arm64.tar.gz"
+      sha256 "ea579056f1d1c2053797c9059328b5ae58a9fb7ddec4f62b837bf5fc912b97c0"
+
+      def install
+        bin.install "fling"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.15/fling_0.0.15_linux_amd64.tar.gz"
-      sha256 "8efc1b582bf142bd022279ce6dd2402568b7cc7beff785f435a4263301f58e11"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.16/fling_0.0.16_linux_amd64.tar.gz"
+      sha256 "4bfaa7dcf576d5b27678bede15324af12f26a2690de079e77c2ddd578fd3b891"
+
+      def install
+        bin.install "fling"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.16/fling_0.0.16_linux_armv6.tar.gz"
+      sha256 "027451bd3eb71e58d87d97ed372ab84f184faa14c13447ffbb4b303ac09d3371"
+
+      def install
+        bin.install "fling"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.16/fling_0.0.16_linux_arm64.tar.gz"
+      sha256 "f763ae34bd703f2bbc58c4cf7524cfb9b462d467103014fddf366fe73bd8e8e0"
 
       def install
         bin.install "fling"
