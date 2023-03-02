@@ -5,11 +5,11 @@
 class Starghaze < Formula
   desc "Save GitHub Starred Repo Information"
   homepage "https://github.com/bbkane/starghaze"
-  version "0.0.13"
+  version "0.0.14"
 
   on_macos do
-    url "https://github.com/bbkane/starghaze/releases/download/v0.0.13/starghaze_0.0.13_darwin_amd64.tar.gz"
-    sha256 "93639411682e53b15a77bf43b00cd04b729f701a75dfac299ded5792cc0a79a0"
+    url "https://github.com/bbkane/starghaze/releases/download/v0.0.14/starghaze_0.0.14_darwin_amd64.tar.gz"
+    sha256 "2dba46d47b7a5c83c8dd4bf58dc7a2acf6aacc13c08314c9ae106ab14456d3bb"
 
     def install
       bin.install "starghaze"
@@ -28,8 +28,8 @@ class Starghaze < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/starghaze/releases/download/v0.0.13/starghaze_0.0.13_linux_amd64.tar.gz"
-      sha256 "22393387eaf7972047ad0b396d778e4532fdd30cf14163da32756b60fc0937af"
+      url "https://github.com/bbkane/starghaze/releases/download/v0.0.14/starghaze_0.0.14_linux_amd64.tar.gz"
+      sha256 "30815b10aa46844fc72eb18f7afef512971a24b40f96cc36176249a74e8e750c"
 
       def install
         bin.install "starghaze"
@@ -37,11 +37,12 @@ class Starghaze < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Unfortunately, Apple wants to charge developers $100/year to distribute
-    their apps without a big scary "... the developer cannot be verified"
-    warning. I'm not willing to pay that to give away free apps.
-    See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
-  EOS
+  def caveats
+    <<~EOS
+      Unfortunately, Apple wants to charge developers $100/year to distribute
+      their apps without a big scary "... the developer cannot be verified"
+      warning. I'm not willing to pay that to give away free apps.
+      See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
+    EOS
   end
 end
