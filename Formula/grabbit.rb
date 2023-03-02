@@ -5,11 +5,11 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.2.14"
+  version "4.2.15"
 
   on_macos do
-    url "https://github.com/bbkane/grabbit/releases/download/v4.2.14/grabbit_4.2.14_darwin_amd64.tar.gz"
-    sha256 "8f103d29def66b8e141aa9af3949be128bedeca749cb2bacf515f0e9f88d0e02"
+    url "https://github.com/bbkane/grabbit/releases/download/v4.2.15/grabbit_4.2.15_darwin_amd64.tar.gz"
+    sha256 "2f94e185e450afa7ab851e159248b5b35cd28850a7d11d4725ce00f55f876c9b"
 
     def install
       bin.install "grabbit"
@@ -28,8 +28,8 @@ class Grabbit < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.14/grabbit_4.2.14_linux_amd64.tar.gz"
-      sha256 "7d4a965d80b0eea275164fb6fc7a0c772394b64abd9f8e6d9b7a73d463120bbc"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.2.15/grabbit_4.2.15_linux_amd64.tar.gz"
+      sha256 "a6f3d8e735941b5672a65c7f140418a92cddf35d75ceefd7db717bafbd8f7e7b"
 
       def install
         bin.install "grabbit"
@@ -37,18 +37,20 @@ class Grabbit < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Unfortunately, Apple wants to charge developers $100/year to distribute
-    their apps without a big scary "... the developer cannot be verified"
-    warning. I'm not willing to pay that to give away free apps.
-    See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
-  EOS
+  def caveats
+    <<~EOS
+      Unfortunately, Apple wants to charge developers $100/year to distribute
+      their apps without a big scary "... the developer cannot be verified"
+      warning. I'm not willing to pay that to give away free apps.
+      See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
+    EOS
   end
 
-  plist_options :startup => false
+  plist_options startup: false
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -88,6 +90,6 @@ class Grabbit < Formula
 
 </plist>
 
-  EOS
+    EOS
   end
 end
