@@ -5,20 +5,20 @@
 class Fling < Formula
   desc "GNU Stow alternative for dotfiles"
   homepage "https://github.com/bbkane/fling"
-  version "0.0.17"
+  version "0.0.18"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.17/fling_0.0.17_darwin_amd64.tar.gz"
-      sha256 "bdd7dd4fbcce83aab6cc5c143271bfa5bce04392077fa938958677ca294f736c"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_darwin_amd64.tar.gz"
+      sha256 "1f30327ab2b3aae095bc68f0e9eb3c24501a3bbbbefe62a0fc7d849ed64d87e1"
 
       def install
         bin.install "fling"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.17/fling_0.0.17_darwin_arm64.tar.gz"
-      sha256 "167444c86cbb27a5e31774913e8eb818d17f90751da7b26e4909c821a6b3d610"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_darwin_arm64.tar.gz"
+      sha256 "ed5ebaedc244d398b1d13e28be4894470f0ec0849be2beb1532980ebeeef8690"
 
       def install
         bin.install "fling"
@@ -27,25 +27,25 @@ class Fling < Formula
   end
 
   on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_armv6.tar.gz"
+      sha256 "ac21c28f47c4d2ad212da322e5120146859cff4911d32fdeff0326aec603ebad"
+
+      def install
+        bin.install "fling"
+      end
+    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.17/fling_0.0.17_linux_arm64.tar.gz"
-      sha256 "e893d65575aeec3fa3beeec8756386d927787ec528c153c74f1d02af55f79ae9"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_arm64.tar.gz"
+      sha256 "46822d162716a53ef7b14034238d892254535b425239ad640779b8b31ad4eef6"
 
       def install
         bin.install "fling"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.17/fling_0.0.17_linux_amd64.tar.gz"
-      sha256 "bf7002619409b6ec7c49466f412829c08a991bceebc86aff5f36ca6904e2618d"
-
-      def install
-        bin.install "fling"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.17/fling_0.0.17_linux_armv6.tar.gz"
-      sha256 "709f09cde08d1701b61b7f2bd7fde7d5fda9f83a7bb150e74188472b3345fd67"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_amd64.tar.gz"
+      sha256 "17cccfc917bfd0801cef3892e51a4c34a91f8bfbdb86e121ba54e8acd6c1f5fe"
 
       def install
         bin.install "fling"
@@ -53,11 +53,12 @@ class Fling < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Unfortunately, Apple wants to charge developers $100/year to distribute
-    their apps without a big scary "... the developer cannot be verified"
-    warning. I'm not willing to pay that to give away free apps.
-    See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
-  EOS
+  def caveats
+    <<~EOS
+      Unfortunately, Apple wants to charge developers $100/year to distribute
+      their apps without a big scary "... the developer cannot be verified"
+      warning. I'm not willing to pay that to give away free apps.
+      See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
+    EOS
   end
 end
