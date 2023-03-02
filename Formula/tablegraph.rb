@@ -5,11 +5,11 @@
 class Tablegraph < Formula
   desc "Create graphs from CSVs"
   homepage "https://github.com/bbkane/tablegraph"
-  version "0.0.3"
+  version "0.0.4"
 
   on_macos do
-    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.3/tablegraph_0.0.3_darwin_amd64.tar.gz"
-    sha256 "337f237c62e8298422a3ffa05ce1be95204fa853f5bba5f73f1d407b0a6fbd5f"
+    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.4/tablegraph_0.0.4_darwin_amd64.tar.gz"
+    sha256 "e195c8d95944f15e29976c7cff366219a5c67794e5bf8543e892b046d89f719e"
 
     def install
       bin.install "tablegraph"
@@ -28,8 +28,8 @@ class Tablegraph < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.3/tablegraph_0.0.3_linux_amd64.tar.gz"
-      sha256 "903ac3cd256d32e9135837a2bf7f8c5a09b5571ff8731b9a6767febb8837213e"
+      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.4/tablegraph_0.0.4_linux_amd64.tar.gz"
+      sha256 "8472939423b328a8ef39ef9490128d8b7bacb7bad244c5c81576cb10a27d2302"
 
       def install
         bin.install "tablegraph"
@@ -37,11 +37,12 @@ class Tablegraph < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Unfortunately, Apple wants to charge developers $100/year to distribute
-    their apps without a big scary "... the developer cannot be verified"
-    warning. I'm not willing to pay that to give away free apps.
-    See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
-  EOS
+  def caveats
+    <<~EOS
+      Unfortunately, Apple wants to charge developers $100/year to distribute
+      their apps without a big scary "... the developer cannot be verified"
+      warning. I'm not willing to pay that to give away free apps.
+      See https://www.macworld.com/article/3140183/how-to-install-an-app-in-macos-sierra-thats-not-signed-by-a-developer.html to work around that
+    EOS
   end
 end
