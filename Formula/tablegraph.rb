@@ -5,11 +5,11 @@
 class Tablegraph < Formula
   desc "Create graphs from CSVs"
   homepage "https://github.com/bbkane/tablegraph"
-  version "0.0.4"
+  version "0.0.5"
 
   on_macos do
-    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.4/tablegraph_0.0.4_darwin_amd64.tar.gz"
-    sha256 "e195c8d95944f15e29976c7cff366219a5c67794e5bf8543e892b046d89f719e"
+    url "https://github.com/bbkane/tablegraph/releases/download/v0.0.5/tablegraph_0.0.5_darwin_amd64.tar.gz"
+    sha256 "149f90925d19de0d66d6a407cd4c2f2b37c9574d4ceead90aa77c66b50e55860"
 
     def install
       bin.install "tablegraph"
@@ -28,8 +28,8 @@ class Tablegraph < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.4/tablegraph_0.0.4_linux_amd64.tar.gz"
-      sha256 "8472939423b328a8ef39ef9490128d8b7bacb7bad244c5c81576cb10a27d2302"
+      url "https://github.com/bbkane/tablegraph/releases/download/v0.0.5/tablegraph_0.0.5_linux_amd64.tar.gz"
+      sha256 "6e01c367dde2b22863f4448f919e6fa64e5d8574869b23f2f8347faa6a73c342"
 
       def install
         bin.install "tablegraph"
