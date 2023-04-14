@@ -5,11 +5,11 @@
 class Shovel < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/shovel"
-  version "0.0.1"
+  version "0.0.2"
 
   on_macos do
-    url "https://github.com/bbkane/shovel/releases/download/v0.0.1/shovel_0.0.1_darwin_amd64.tar.gz"
-    sha256 "0847277dd8080977d1828311f395af173ce2f30a0c8b13fc6109640539c5b578"
+    url "https://github.com/bbkane/shovel/releases/download/v0.0.2/shovel_0.0.2_darwin_amd64.tar.gz"
+    sha256 "425b504187a1ed823dc17ea678f7e22b746e80f0020fcb50eda592b4627ec732"
 
     def install
       bin.install "shovel"
@@ -28,8 +28,8 @@ class Shovel < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.1/shovel_0.0.1_linux_amd64.tar.gz"
-      sha256 "b6a6249fbb5a94504c113fed897749a11115ab0e9e789a730f0b86c0e21800c0"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.2/shovel_0.0.2_linux_amd64.tar.gz"
+      sha256 "bb9b4739fb730a43c2687d86647a02de487f1a0a05bfb1b319a8d182b57cbb2d"
 
       def install
         bin.install "shovel"
