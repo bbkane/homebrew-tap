@@ -1,6 +1,6 @@
 # homebrew-tap
 
-Ben's personal homebrew tap for custom formulas
+Ben's personal homebrew tap for custom formulas. Most of these are generated with [GoReleaser](https://goreleaser.com/).
 
 # Install
 
