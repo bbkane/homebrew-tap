@@ -5,11 +5,11 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.2.17"
+  version "4.4.18"
 
   on_macos do
-    url "https://github.com/bbkane/grabbit/releases/download/v4.2.17/grabbit_4.2.17_darwin_amd64.tar.gz"
-    sha256 "ecbc6954a004c16c86f9f331a658049cd62e4958b2d1a1c4373b00ce145b7832"
+    url "https://github.com/bbkane/grabbit/releases/download/v4.4.18/grabbit_4.4.18_darwin_amd64.tar.gz"
+    sha256 "28c25bc657768bc354b1b9880b139d8794f79a6b7cd625ff2f8dc9177edb2701"
 
     def install
       bin.install "grabbit"
@@ -28,8 +28,8 @@ class Grabbit < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.17/grabbit_4.2.17_linux_amd64.tar.gz"
-      sha256 "05f0506b159f213cbac85b005244354dd24f1bb7ab86e8fc1a93311f256a01fc"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.4.18/grabbit_4.4.18_linux_amd64.tar.gz"
+      sha256 "7d0ea247e7407f1018c634d16ed644cbfc9962f561c588e1e541f68963c0ed6c"
 
       def install
         bin.install "grabbit"
@@ -49,6 +49,6 @@ class Grabbit < Formula
   service do
     run [opt_bin/"grabbit", "grab"]
     run_type :cron
-    cron "8 21 * * Mon"
+    cron "8 21 * * 1"
   end
 end
