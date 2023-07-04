@@ -5,11 +5,11 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.2.16"
+  version "4.2.17"
 
   on_macos do
-    url "https://github.com/bbkane/grabbit/releases/download/v4.2.16/grabbit_4.2.16_darwin_amd64.tar.gz"
-    sha256 "f2539b3e86bb124cea6c743ea1d2061ecba2ab0685848d0897019beb3a782a25"
+    url "https://github.com/bbkane/grabbit/releases/download/v4.2.17/grabbit_4.2.17_darwin_amd64.tar.gz"
+    sha256 "ecbc6954a004c16c86f9f331a658049cd62e4958b2d1a1c4373b00ce145b7832"
 
     def install
       bin.install "grabbit"
@@ -28,8 +28,8 @@ class Grabbit < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.2.16/grabbit_4.2.16_linux_amd64.tar.gz"
-      sha256 "2ea4b4e1d587730f48ebc7526c0d69ad8c6ce6a3a1f3f6393480fb0305e6ad7e"
+      url "https://github.com/bbkane/grabbit/releases/download/v4.2.17/grabbit_4.2.17_linux_amd64.tar.gz"
+      sha256 "05f0506b159f213cbac85b005244354dd24f1bb7ab86e8fc1a93311f256a01fc"
 
       def install
         bin.install "grabbit"
@@ -46,50 +46,9 @@ class Grabbit < Formula
     EOS
   end
 
-  plist_options startup: false
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-
-    <!-- Not sure these are necessary -->
-  <key>EnvironmentVariables</key>
-  <dict>
-    <key>PATH</key>
-    <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin</string>
-  </dict>
-
-  <key>Label</key>
-  <string>#{plist_name}</string>
-
-  <key>ProgramArguments</key>
-  <array>
-    <string>#{opt_bin}/grabbit</string>
-    <string>grab</string>
-  </array>
-
-  <key>RunAtLoad</key>
-  <true/>
-
-  <key>StartCalendarInterval</key>
-  <array>
-    <dict>
-      <key>Hour</key>
-      <integer>10</integer>
-      <key>Minute</key>
-      <integer>0</integer>
-      <!-- Monday is 1 -->
-      <key>Weekday</key>
-      <integer>1</integer>
-    </dict>
-  </array>
-</dict>
-
-</plist>
-
-    EOS
+  service do
+    run [opt_bin/"grabbit", "grab"]
+    run_type :cron
+    cron "8 21 * * Mon"
   end
 end
