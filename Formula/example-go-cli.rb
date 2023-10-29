@@ -5,47 +5,31 @@
 class ExampleGoCli < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/example-go-cli"
-  version "0.0.13"
+  version "0.0.14"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.13/example-go-cli_0.0.13_darwin_amd64.tar.gz"
-      sha256 "252f659d4d6afee0de81a9ef6a7c32b4b97cc96ba18ed55149e80161d6d22616"
+    url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.14/example-go-cli_0.0.14_darwin_amd64.tar.gz"
+    sha256 "e717fa778ab349826075d73a3b035f84ad17dcf18a9d8dde1b2585ec869684b1"
 
-      def install
-        bin.install "example-go-cli"
-      end
+    def install
+      bin.install "example-go-cli"
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.13/example-go-cli_0.0.13_darwin_arm64.tar.gz"
-      sha256 "5eaa4631ff31e15f59b49a6c63fc6f46287e29700e8d754930f0530b9dfb0582"
 
-      def install
-        bin.install "example-go-cli"
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the ExampleGoCli
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.13/example-go-cli_0.0.13_linux_arm64.tar.gz"
-      sha256 "3e167b541c2eaa73fb2214c9d4d19eb719e2a07a906310c89bf11799150b9c17"
-
-      def install
-        bin.install "example-go-cli"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.13/example-go-cli_0.0.13_linux_armv6.tar.gz"
-      sha256 "3457344ab8c86d03fdda72544e635b076d6cab6727a780067cb51780726dae59"
-
-      def install
-        bin.install "example-go-cli"
-      end
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.13/example-go-cli_0.0.13_linux_amd64.tar.gz"
-      sha256 "75c75df528074475ac8a3a44c5b1a210d2d2847428f03f11bcce8be6ff900faa"
+      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.14/example-go-cli_0.0.14_linux_amd64.tar.gz"
+      sha256 "dbefd6b328b134475e4808136b7a5687316a069b8e3aa4125f5d8aed9c27b81e"
 
       def install
         bin.install "example-go-cli"
