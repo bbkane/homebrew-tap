@@ -5,20 +5,20 @@
 class Fling < Formula
   desc "GNU Stow alternative for dotfiles"
   homepage "https://github.com/bbkane/fling"
-  version "0.0.18"
+  version "0.0.19"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_darwin_amd64.tar.gz"
-      sha256 "1f30327ab2b3aae095bc68f0e9eb3c24501a3bbbbefe62a0fc7d849ed64d87e1"
+    if Hardware::CPU.arm?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.19/fling_0.0.19_darwin_arm64.tar.gz"
+      sha256 "e42120ed707fc8b301aa1e9d02244d7519d91dad177c10ef955335745463cca5"
 
       def install
         bin.install "fling"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_darwin_arm64.tar.gz"
-      sha256 "ed5ebaedc244d398b1d13e28be4894470f0ec0849be2beb1532980ebeeef8690"
+    if Hardware::CPU.intel?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.19/fling_0.0.19_darwin_amd64.tar.gz"
+      sha256 "2cb878eeb879ddde551539efd0cc04a2ef6cd19a4cff7bed139389972ce2fd4d"
 
       def install
         bin.install "fling"
@@ -27,25 +27,25 @@ class Fling < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_armv6.tar.gz"
-      sha256 "ac21c28f47c4d2ad212da322e5120146859cff4911d32fdeff0326aec603ebad"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.19/fling_0.0.19_linux_arm64.tar.gz"
+      sha256 "e1d4ea163d8a91b49042582b96b2f89e4b31c4fc4c468c887b0b1c290faf8a00"
 
       def install
         bin.install "fling"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_arm64.tar.gz"
-      sha256 "46822d162716a53ef7b14034238d892254535b425239ad640779b8b31ad4eef6"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/fling/releases/download/v0.0.19/fling_0.0.19_linux_armv6.tar.gz"
+      sha256 "64fa8fd83458f7bc8f376c1c7a5145df7fa667a1c239735982063ed0e9f0b29a"
 
       def install
         bin.install "fling"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/fling/releases/download/v0.0.18/fling_0.0.18_linux_amd64.tar.gz"
-      sha256 "17cccfc917bfd0801cef3892e51a4c34a91f8bfbdb86e121ba54e8acd6c1f5fe"
+      url "https://github.com/bbkane/fling/releases/download/v0.0.19/fling_0.0.19_linux_amd64.tar.gz"
+      sha256 "c491815a693fb3317072d35033ed7cc43b686bc9f0d9ee26e8831ea61a4e5c19"
 
       def install
         bin.install "fling"
