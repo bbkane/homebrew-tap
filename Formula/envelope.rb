@@ -5,11 +5,11 @@
 class Envelope < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/envelope"
-  version "0.0.7"
+  version "0.0.8"
 
   on_macos do
-    url "https://github.com/bbkane/envelope/releases/download/v0.0.7/envelope_0.0.7_darwin_amd64.tar.gz"
-    sha256 "376e7632ca66689db1ebd5784a44d40a53414cfe3e8e427130ceef0e6ad1b786"
+    url "https://github.com/bbkane/envelope/releases/download/v0.0.8/envelope_0.0.8_darwin_amd64.tar.gz"
+    sha256 "71bd6d44531abeea25b5ad75ff66b317e0d6dd789b3d08ba3ff54d718b54ec93"
 
     def install
       bin.install "envelope"
@@ -28,8 +28,8 @@ class Envelope < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/envelope/releases/download/v0.0.7/envelope_0.0.7_linux_amd64.tar.gz"
-      sha256 "f5806db3c6cb95eb14c2e440f37f844c2af97dc13fb6ef8fd070bf9f4cc8b50e"
+      url "https://github.com/bbkane/envelope/releases/download/v0.0.8/envelope_0.0.8_linux_amd64.tar.gz"
+      sha256 "2da3e2b85aaa052c07b4dd93170c5620062ffa27d2956234846ba9096dbaea39"
 
       def install
         bin.install "envelope"
