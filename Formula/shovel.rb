@@ -5,31 +5,39 @@
 class Shovel < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/shovel"
-  version "0.0.15"
+  version "0.0.17"
 
   on_macos do
-    url "https://github.com/bbkane/shovel/releases/download/v0.0.15/shovel_0.0.15_darwin_amd64.tar.gz"
-    sha256 "c3288f6a8819519e9c54865be2d6f2117f6161aeb261f7b6ae032ed0d933549f"
+    if Hardware::CPU.intel?
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_darwin_amd64.tar.gz"
+      sha256 "a4ddf90f118c9baeb17db5d2398644d5efcb4a7e160a4d0e953a9f0d9c688b83"
 
-    def install
-      bin.install "shovel"
+      def install
+        bin.install "shovel"
+      end
     end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Shovel
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_darwin_arm64.tar.gz"
+      sha256 "5fb16a160ed3d965cc4eb213c3532e841edfe62beb3879355a847e4605cd5c3b"
+
+      def install
+        bin.install "shovel"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.15/shovel_0.0.15_linux_amd64.tar.gz"
-      sha256 "10e1ad0a885abb4b7e87650c56937e62e34206644f46634fc569741e70d1ea3d"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_linux_amd64.tar.gz"
+      sha256 "eccfafab8716e5af4c64a1a218b44b2f6b20c4649fde4e7001e496c6aba4db83"
+
+      def install
+        bin.install "shovel"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_linux_arm64.tar.gz"
+      sha256 "0e638e418751d21b5e0add483d19bcd5aa59f9334ba4bd6af7e72b345f0e2f9d"
 
       def install
         bin.install "shovel"
