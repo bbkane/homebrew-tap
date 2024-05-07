@@ -5,20 +5,20 @@
 class Shovel < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/shovel"
-  version "0.0.17"
+  version "0.0.18"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_darwin_amd64.tar.gz"
-      sha256 "a4ddf90f118c9baeb17db5d2398644d5efcb4a7e160a4d0e953a9f0d9c688b83"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_darwin_amd64.tar.gz"
+      sha256 "889c980ef4f752fe88cfa5c498ccaaa8f4b58c870992f2d6c5615eaa65f10747"
 
       def install
         bin.install "shovel"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_darwin_arm64.tar.gz"
-      sha256 "5fb16a160ed3d965cc4eb213c3532e841edfe62beb3879355a847e4605cd5c3b"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_darwin_arm64.tar.gz"
+      sha256 "f7db4287130f91f29ab38fd3a5018e9e9cfacf69cde0de189a80adf35084b404"
 
       def install
         bin.install "shovel"
@@ -28,16 +28,16 @@ class Shovel < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_linux_amd64.tar.gz"
-      sha256 "eccfafab8716e5af4c64a1a218b44b2f6b20c4649fde4e7001e496c6aba4db83"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_linux_amd64.tar.gz"
+      sha256 "dd5b72be7a25a3ceadd54b66bb45af33af05d4fb10184d6f9d1494d3bc93e749"
 
       def install
         bin.install "shovel"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.17/shovel_0.0.17_linux_arm64.tar.gz"
-      sha256 "0e638e418751d21b5e0add483d19bcd5aa59f9334ba4bd6af7e72b345f0e2f9d"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_linux_arm64.tar.gz"
+      sha256 "8cebd34cbc29c5ae86c6fb3e14255c8031d5cf31bd2b72a82308bb4070713e19"
 
       def install
         bin.install "shovel"
