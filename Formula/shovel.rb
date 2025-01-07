@@ -5,20 +5,20 @@
 class Shovel < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/shovel"
-  version "0.0.18"
+  version "0.0.19"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_darwin_amd64.tar.gz"
-      sha256 "889c980ef4f752fe88cfa5c498ccaaa8f4b58c870992f2d6c5615eaa65f10747"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.19/shovel_0.0.19_darwin_amd64.tar.gz"
+      sha256 "c00d3b5dd02788cf5cd99f408cd9ed776652718bec7fbc30404f88341088d8eb"
 
       def install
         bin.install "shovel"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_darwin_arm64.tar.gz"
-      sha256 "f7db4287130f91f29ab38fd3a5018e9e9cfacf69cde0de189a80adf35084b404"
+      url "https://github.com/bbkane/shovel/releases/download/v0.0.19/shovel_0.0.19_darwin_arm64.tar.gz"
+      sha256 "96b296c08344399dcdc8c55e9831ea861143fe2316e88db0fd152ba3c9ad39db"
 
       def install
         bin.install "shovel"
@@ -28,19 +28,23 @@ class Shovel < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_linux_amd64.tar.gz"
-      sha256 "dd5b72be7a25a3ceadd54b66bb45af33af05d4fb10184d6f9d1494d3bc93e749"
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/bbkane/shovel/releases/download/v0.0.19/shovel_0.0.19_linux_amd64.tar.gz"
+        sha256 "54008d7cfd519c3cdf57de29498f0558aa065bea0ad9ee377de1ba29d516d550"
 
-      def install
-        bin.install "shovel"
+        def install
+          bin.install "shovel"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/shovel/releases/download/v0.0.18/shovel_0.0.18_linux_arm64.tar.gz"
-      sha256 "8cebd34cbc29c5ae86c6fb3e14255c8031d5cf31bd2b72a82308bb4070713e19"
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/bbkane/shovel/releases/download/v0.0.19/shovel_0.0.19_linux_arm64.tar.gz"
+        sha256 "0f7585e6bdf18a56c3322a5dce8f1c3a28a07092ae7a8babc96e738f7b395222"
 
-      def install
-        bin.install "shovel"
+        def install
+          bin.install "shovel"
+        end
       end
     end
   end
