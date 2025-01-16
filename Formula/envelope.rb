@@ -5,17 +5,17 @@
 class Envelope < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/envelope"
-  version "0.0.12"
+  version "0.0.13"
 
   on_macos do
-    url "https://github.com/bbkane/envelope/releases/download/v0.0.12/envelope_0.0.12_darwin_amd64.tar.gz"
-    sha256 "0a8cd8afd8686fcd36f828721e8bf714a29a773f115a2e0015c04db590b5b993"
+    url "https://github.com/bbkane/envelope/releases/download/v0.0.13/envelope_0.0.13_darwin_amd64.tar.gz"
+    sha256 "b689f2b496dbfcc0eaa9c6b39cd0f769ded4f89b446e3500d8432f657e4dc2ed"
 
     def install
       bin.install "envelope"
     end
 
-    on_arm do
+    if Hardware::CPU.arm?
       def caveats
         <<~EOS
           The darwin_arm64 architecture is not supported for the Envelope
@@ -27,10 +27,10 @@ class Envelope < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bbkane/envelope/releases/download/v0.0.12/envelope_0.0.12_linux_amd64.tar.gz"
-        sha256 "e7c37f15c4b7839de451f977cb049dba22b403bb16ff1073d389286a40855077"
+        url "https://github.com/bbkane/envelope/releases/download/v0.0.13/envelope_0.0.13_linux_amd64.tar.gz"
+        sha256 "49d021a0fe6a53bcfa4c5d4f9c40587eff73d972ba349bbd55284aa02e470c94"
 
         def install
           bin.install "envelope"
