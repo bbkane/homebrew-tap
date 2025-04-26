@@ -5,11 +5,11 @@
 class Envelope < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/envelope"
-  version "0.0.14"
+  version "0.0.15"
 
   on_macos do
-    url "https://github.com/bbkane/envelope/releases/download/v0.0.14/envelope_0.0.14_darwin_amd64.tar.gz"
-    sha256 "30fcac47384f29b614dbc49b966b2f8153606490ceab551e41531d905d1877e4"
+    url "https://github.com/bbkane/envelope/releases/download/v0.0.15/envelope_0.0.15_darwin_amd64.tar.gz"
+    sha256 "6e0bb03487e395ba280da68b91a429a1d9343c39b7d9b50c55cc1babdf18b884"
 
     def install
       bin.install "envelope"
@@ -29,14 +29,18 @@ class Envelope < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bbkane/envelope/releases/download/v0.0.14/envelope_0.0.14_linux_amd64.tar.gz"
-        sha256 "134c757a7aa9eea273a4aba5ac05e6018b133a8f8051de3be7df55bb989a6641"
+        url "https://github.com/bbkane/envelope/releases/download/v0.0.15/envelope_0.0.15_linux_amd64.tar.gz"
+        sha256 "7348a4644530e4d13149a23251349ad0e7bb017100f587a74871a14572e1a1e0"
 
         def install
           bin.install "envelope"
         end
       end
     end
+  end
+
+  def post_install
+    generate_completions_from_executable(bin/"envelope", "completion", shells: [:zsh])
   end
 
   def caveats
