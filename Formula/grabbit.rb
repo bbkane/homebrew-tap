@@ -5,11 +5,11 @@
 class Grabbit < Formula
   desc "Grab images from subreddits! Useful for getting interesting wallpapers"
   homepage "https://github.com/bbkane/grabbit"
-  version "4.4.22"
+  version "5.0.0"
 
   on_macos do
-    url "https://github.com/bbkane/grabbit/releases/download/v4.4.22/grabbit_4.4.22_darwin_amd64.tar.gz"
-    sha256 "0f734199fb08494495a5445582ba27f3cf8d6abcf2b60606103bbf2c2ea4de73"
+    url "https://github.com/bbkane/grabbit/releases/download/v5.0.0/grabbit_5.0.0_darwin_amd64.tar.gz"
+    sha256 "7dbf4ba74982450f9b9ec7ec8618d49fe123d9b9755ee9e7c8bc9f05084351ba"
 
     def install
       bin.install "grabbit"
@@ -28,9 +28,9 @@ class Grabbit < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/grabbit/releases/download/v4.4.22/grabbit_4.4.22_linux_amd64.tar.gz"
-      sha256 "d61892ee7ddffabf317ba3371fcef0547f89ed53b179a66d70eaa61950dfcb88"
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/grabbit/releases/download/v5.0.0/grabbit_5.0.0_linux_amd64.tar.gz"
+      sha256 "6b824bccd8e0cf2a485b88e54a79a5f2c674d9c44902d841b2d6a82a116bfa7d"
       def install
         bin.install "grabbit"
         generate_completions_from_executable(bin/"grabbit", "completion", shells: [:zsh])
