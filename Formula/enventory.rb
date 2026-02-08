@@ -5,11 +5,11 @@
 class Enventory < Formula
   desc "Centrally manage environment variables"
   homepage "https://github.com/bbkane/enventory"
-  version "0.0.24"
+  version "0.0.25"
 
   on_macos do
-    url "https://github.com/bbkane/enventory/releases/download/v0.0.24/enventory_0.0.24_darwin_amd64.tar.gz"
-    sha256 "5ad331f641bc978d3139c67428521fddca14b8760064a28fe932c0308288844a"
+    url "https://github.com/bbkane/enventory/releases/download/v0.0.25/enventory_0.0.25_darwin_amd64.tar.gz"
+    sha256 "2f3c9406cc4e2ca220e2c40488cdad04c6fa6ffb55dbb30a1472ebddfa495c5f"
 
     def install
       bin.install "enventory"
@@ -29,8 +29,8 @@ class Enventory < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/enventory/releases/download/v0.0.24/enventory_0.0.24_linux_amd64.tar.gz"
-      sha256 "735aa6034c23976c4026f8c88e7dcc24d087c71fdb88c5c26143791d04eeef9e"
+      url "https://github.com/bbkane/enventory/releases/download/v0.0.25/enventory_0.0.25_linux_amd64.tar.gz"
+      sha256 "810cd8c5a29d34c5123d1f350625397d6f2e9a6056734eee32452f84ad9b93ad"
       def install
         bin.install "enventory"
         generate_completions_from_executable(bin/"enventory", "completion", shells: [:zsh])
