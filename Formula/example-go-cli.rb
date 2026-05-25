@@ -5,15 +5,15 @@
 class ExampleGoCli < Formula
   desc "Example Go CLI to model tooling"
   homepage "https://github.com/bbkane/example-go-cli"
-  version "0.0.18"
+  version "0.0.19"
 
   on_macos do
-    url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.18/example-go-cli_0.0.18_darwin_amd64.tar.gz"
-    sha256 "a34b077595c8067e2653ec23693299df7e32cad943f1091717d10183a5ee9e92"
+    url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.19/example-go-cli_0.0.19_darwin_amd64.tar.gz"
+    sha256 "d010bd613950e4e6e505cb0678ae94b68389e303cfc7e109627be65b0c182cd9"
 
     define_method(:install) do
       bin.install "example-go-cli"
-      generate_completions_from_executable(bin/"example-go-cli", "completion", shells: [:zsh])
+      generate_completions_from_executable(bin/"example-go-cli", "completion", shells: [:bash, :fish, :zsh])
     end
 
     if Hardware::CPU.arm?
@@ -29,11 +29,11 @@ class ExampleGoCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.18/example-go-cli_0.0.18_linux_amd64.tar.gz"
-      sha256 "e2254ad7db5f0daa40b23754aaaeaa4c9f2c1669166ace705e4efbeaf47d1139"
+      url "https://github.com/bbkane/example-go-cli/releases/download/v0.0.19/example-go-cli_0.0.19_linux_amd64.tar.gz"
+      sha256 "dbba5f22b4e97c858fd2b3f747bd4e086ec5b1667cc8a7a26d93dc060b1bcb8e"
       define_method(:install) do
         bin.install "example-go-cli"
-        generate_completions_from_executable(bin/"example-go-cli", "completion", shells: [:zsh])
+        generate_completions_from_executable(bin/"example-go-cli", "completion", shells: [:bash, :fish, :zsh])
       end
     end
   end
