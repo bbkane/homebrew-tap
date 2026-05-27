@@ -5,15 +5,15 @@
 class Toddlerevents < Formula
   desc "Write Bay Area toddler library events to a README.md"
   homepage "https://github.com/bbkane/toddlerevents"
-  version "0.0.3"
+  version "0.0.4"
 
   on_macos do
-    url "https://github.com/bbkane/toddlerevents/releases/download/v0.0.3/toddlerevents_0.0.3_darwin_amd64.tar.gz"
-    sha256 "2c41849203a2ebf61c1c5a991a78e0562bcee940328f8545efef4ea2b4ba730a"
+    url "https://github.com/bbkane/toddlerevents/releases/download/v0.0.4/toddlerevents_0.0.4_darwin_amd64.tar.gz"
+    sha256 "851c4ecd12e775a4282ac1c13ab495ea9b962462869e4da26c2366467c4f4304"
 
-    def install
+    define_method(:install) do
       bin.install "toddlerevents"
-      generate_completions_from_executable(bin/"toddlerevents", "completion", shells: [:zsh])
+      generate_completions_from_executable(bin/"toddlerevents", "completion", shells: [:bash, :fish, :zsh])
     end
 
     if Hardware::CPU.arm?
@@ -28,12 +28,12 @@ class Toddlerevents < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/bbkane/toddlerevents/releases/download/v0.0.3/toddlerevents_0.0.3_linux_amd64.tar.gz"
-      sha256 "f9dbd411477e2a88da1a2bbedc87eec4a03b4b7abe4eb2a7586dad63eee72aaf"
-      def install
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/bbkane/toddlerevents/releases/download/v0.0.4/toddlerevents_0.0.4_linux_amd64.tar.gz"
+      sha256 "25e18ee34c12f2eb9d3b86df1b18a2cdaf7eedd4888fa39be2df754e083ba50b"
+      define_method(:install) do
         bin.install "toddlerevents"
-        generate_completions_from_executable(bin/"toddlerevents", "completion", shells: [:zsh])
+        generate_completions_from_executable(bin/"toddlerevents", "completion", shells: [:bash, :fish, :zsh])
       end
     end
   end
